@@ -14,7 +14,7 @@ import {useRouter} from "next/navigation";
 export default function Header() {
 
     const navOptions: string[] = ["Home", "Feature", "Blog", "Testimonials"];
-    const [isAuth, setIsAuth] = useState<string | null>(null);
+    const [isAuth, setIsAuth] = useState<string | null>(localStorage.getItem(AUTH_KEY));
     const router = useRouter();
 
     useEffect(() => {
