@@ -13,7 +13,7 @@ export interface IAppButtonProps {
 export default function AppButton(props: IAppButtonProps) {
 
     return (
-        <button onClick={props.onClick} className={`AppButton border-[1px] border-black/10 w-[114px] h-[42px] 
+        <button onClick={props.onClick} className={`AppButton border-[1px] border-black/10 min-w-[114px] h-[42px] 
         rounded-[24px] ${props.color === AppButtonColorEnum.WHITE ? "bg-white text-black font-btn-nav" : "bg-[#04AA00] text-white font-btn-nav-active"}`}>
             {props.children}
         </button>

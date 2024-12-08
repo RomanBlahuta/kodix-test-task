@@ -38,8 +38,8 @@ export default function FeaturedPost(props: IFeaturedPostProps) {
                 <div className="inline-block w-[20px]"></div>
                 <AppButton onClick={() => console.log("Author")} color={AppButtonColorEnum.WHITE}>
                     <div className="flex flex-row justify-start items-center p-[5px] overflow-hidden">
-                        <div className="inline-block rounded-[50%] w-[24px] h-[24px] bg-black/20 mr-[8px]"></div>
-                        <p className="text-ellipsis overflow-hidden whitespace-nowrap w-[60px]">{props.author ? props.author.name : <>John Doe</>}</p>
+                        <div className="inline-block flex-shrink-0 rounded-[50%] w-[24px] h-[24px] bg-black/20 mr-[8px]"></div>
+                        <p className="flex-shrink-0 whitespace-nowrap mr-[8px]">{props.author ? props.author.name : <>John Doe</>}</p>
                     </div>
                 </AppButton>
             </div>

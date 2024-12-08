@@ -38,12 +38,13 @@ export default function PostHorizontalList({ excludeId, mode }: IPostListProps) 
 
         fetchPosts();
     }, [excludeId])
+    //1352
     return (
-        <div className=" bg-white mt-[48.79px] mb-[130px] border-[1px] p-[20px] justify-center items-start flex
-          flex-row gap-[20px] border-[#D6D6D6] rounded-[24px]">
+        <div className=" bg-white mt-[48.79px] mb-[130px] border-[1px] py-[20px] px-[10px] whitespace-nowrap w-[1352px] overflow-x-scroll
+          border-[#D6D6D6] rounded-[24px]">
             {loading ? <p className="font-title-3 text-black">Loading...</p> :
-                posts.slice(0, 5).map(postData =>
-                    <PostCard mode={mode} key={postData.id} postData={postData}></PostCard>)}
+                posts.map(postData =>
+                    <div key={postData.id} className="inline-block mx-[10px]"><PostCard mode={mode} postData={postData}></PostCard></div>)}
         </div>
     );
 };

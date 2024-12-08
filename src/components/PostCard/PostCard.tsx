@@ -22,7 +22,7 @@ export default function PostCard(props: IPostCardProps) {
                 <p className={`${props.mode === PostModesEnum.HOME ? "mt-20px " : ""}mb-[20px] font-date text-black/60`}>
                     {"wednesday 12, march 2024".toUpperCase()}
                 </p>
-                <p className="font-post-title text-black mb-[8px]">
+                <p className="font-post-title text-black whitespace-normal mb-[8px]">
                     {props.postData.title}
                 </p>
                 <p className="font-subtitle text-black/50 truncate text-start h-[27px] w-[100%]">
