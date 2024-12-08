@@ -1,12 +1,39 @@
+"use client"
+
 import Image, {StaticImageData} from "next/image";
 import Kodix from "../../../public/svg/kodix.svg";
 import Link from "next/link";
 import "../../../public/css/fonts.css";
 import AppButton from "@/components/AppButton/AppButton";
 import {AppButtonColorEnum} from "@/utils/enums";
+import RoutesEnum from "@/utils/routing";
+import {AUTH_KEY} from "@/utils/constants";
+import {useEffect, useState} from "react";
+import {useRouter} from "next/navigation";
 
 export default function Header() {
+
     const navOptions: string[] = ["Home", "Feature", "Blog", "Testimonials"];
+    const [isAuth, setIsAuth] = useState<string | null>(null);
+    const router = useRouter();
+
+    useEffect(() => {
+        setIsAuth(localStorage.getItem(AUTH_KEY));
+    }, []);
+
+    function signIn(): void {
+        router.push(RoutesEnum.SIGN_IN);
+    }
+
+    function signUp(): void {
+        router.push(RoutesEnum.SIGN_UP);
+    }
+
+    function logOut(): void {
+        localStorage.clear();
+        setIsAuth(localStorage.getItem(AUTH_KEY));
+        router.refresh();
+    }
 
     return (
         <div className="Header h-[96px] flex flex-row items-center border-b-[1px] border-black/[.10]">
@@ -21,16 +48,13 @@ export default function Header() {
             </div>
 
             <div className="Header__btns mr-[45px] flex flex-1 justify-end">
-                <Link href="/sign-in"><AppButton color={AppButtonColorEnum.WHITE}>Log In</AppButton></Link>
-                <div className="w-[9px] inline-block"></div>
-                <Link href="/sign-up"><AppButton color={AppButtonColorEnum.ACCENT}>Sign Up</AppButton></Link>
+                {(!isAuth) ?
+                    <><AppButton onClick={signIn} color={AppButtonColorEnum.WHITE}>Log In</AppButton>
+                    <div className="w-[9px] inline-block"></div>
+                    <AppButton onClick={signUp} color={AppButtonColorEnum.ACCENT}>Sign Up</AppButton></>
+                    :
+                    <AppButton onClick={logOut} color={AppButtonColorEnum.WHITE}>Log Out</AppButton>}
             </div>
         </div>
     );
 };
-
-/*
-* <button className="bg-white border-[1px] text-black font-btn-white border-black/10 w-[114px] h-[42px] rounded-[24px]">Log In</button>
-                <div className="w-[9px] inline-block"></div>
-                <button className="bg-[#04AA00] text-white font-btn-accent border-[1px] border-black/10 w-[114px] h-[42px] rounded-[24px]">Sign Up</button>
-* */

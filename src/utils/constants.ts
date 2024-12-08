@@ -8,6 +8,8 @@ import circle_star from '../../public/svg/circle_star.svg';
 import {StaticImageData} from "next/image";
 import {SocialsEnum} from "@/utils/enums";
 
+export const API_BASE = "https://jsonplaceholder.typicode.com";
+
 export interface ITrialItem {
     icon: StaticImageData;
     title: string;
@@ -47,3 +49,5 @@ export const TRIAL_ITEMS: ITrialItem[] = [
         alt: 'circle_star',
     },
 ];
+
+export const AUTH_KEY: string = 'auth';
