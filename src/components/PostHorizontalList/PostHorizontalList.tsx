@@ -38,7 +38,7 @@ export default function PostHorizontalList({ excludeId, mode }: IPostListProps) 
 
         fetchPosts();
     }, [excludeId])
-    //1352
+
     return (
         <div className=" bg-white mt-[48.79px] mb-[130px] border-[1px] py-[20px] px-[10px] whitespace-nowrap w-[1352px] overflow-x-scroll
           border-[#D6D6D6] rounded-[24px]">
