@@ -1,11 +1,7 @@
-"use client";
-
 import Link from "next/link";
 import {Roboto} from "next/font/google";
 import "../../../../public/css/fonts.css"
-import AppInput from "@/components/AppInput/AppInput";
-import AppButton from "@/components/AppButton/AppButton";
-import {AppButtonColorEnum} from "@/utils/enums";
+import SignInForm from "@/components/Forms/SignInForm/SignInForm";
 
 const roboto = Roboto({
     subsets: ['latin'],
@@ -14,20 +10,12 @@ const roboto = Roboto({
 
 export default function SignIn() {
     return (
-        <div className="SignIn w-[751px] h-[485px] bg-white flex flex-row border-[1px] border-black rounded-[25px]">
+        <div className="SignIn w-[751px] bg-white flex flex-row border-[1px] border-black rounded-[25px]">
             <div className="SignIn__form-container flex-grow p-[32px]">
-                <h1 className="font-form-title text-black mb-[23px]">Sign In</h1>
-                <AppInput label="Email address" password={false} id={"email"} name={"email"} required={true}
-                          placeholder="Email address"/>
-                <div className="h-[24px]"></div>
-                <AppInput label="Password" password={true} id={"password"} name={"password"} required={true}
-                          placeholder="Password"/>
-                <p className="font-forgot-password mt-[24px] mb-[32px] text-[#04AA00]">Forgot password?</p>
-                <AppButton onClick={() => console.log("Submit")} color={AppButtonColorEnum.ACCENT}></AppButton>
+                <SignInForm></SignInForm>
             </div>
 
-            <div
-                className="SignIn__info-container flex flex-col justify-center items-center bg-black w-[293px] h-[100%] rounded-r-[25px]">
+            <div className="SignIn__info-container flex flex-col justify-center items-center bg-black w-[293px] h-[100%] rounded-r-[25px]">
                 <div className="flex flex-row gap-[11px] justify-center items-center">
                     <span className={`${roboto.className} text-white font-kodix-logo`}>Kodix</span>
                     <div className="inline-block border-[1px] border-[#1FFF1A]
